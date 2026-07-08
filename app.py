@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import random
 import os
-import plotly.express as px
+import pandas as pd
 
 st.set_page_config(page_title="Janata Voice", layout="wide")
 st.title("🇮🇳 Janata Voice - People's Priorities")
@@ -46,14 +46,12 @@ elif menu == "MP Office":
         with col1:
             st.subheader("📊 Complaints by Category")
             if not df.empty:
-                fig1 = px.bar(df['Category'].value_counts(), title="Total per Category")
-                st.plotly_chart(fig1, use_container_width=True)
+                  st.bar_chart(df['Category'].value_counts())
         
         with col2:
             st.subheader("📈 Status Overview")
             if not df.empty:
-                fig2 = px.pie(df, names='Status', title="Status Breakdown")
-                st.plotly_chart(fig2, use_container_width=True)
+             st.dataframe(df['Status'].value_counts())
 
         st.divider()
         st.subheader("📋 Manage Complaints")
